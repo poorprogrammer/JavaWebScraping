@@ -21,8 +21,9 @@ public class JsoupWebScraping {
 	}
 
 	public String findMaxLenghtWord(String textArrayFromBody) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String theLongestWord = "";
+		return theLongestWord;
 	}
 
 	
