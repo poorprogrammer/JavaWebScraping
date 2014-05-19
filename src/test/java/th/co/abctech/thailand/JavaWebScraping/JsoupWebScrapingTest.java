@@ -35,34 +35,62 @@ public class JsoupWebScrapingTest extends TestCase {
 	
 	
 	
-	public void testWebScrapingByURL() throws IOException {
-		Document doc = scraper.scrapingFromUrl(webUrl);
-		assertNotNull(doc);
-		
+//	public void testWebScrapingByURL() throws IOException {
+//		Document doc = scraper.scrapingFromUrl(webUrl);
+//		assertNotNull(doc);
+//		
+//	}
+//	
+//	public void testGetTextContentFromDocument() throws IOException{
+//		Document doc = scraper.scrapingFromUrl(webUrl);
+//		assertNotNull(doc);
+//		
+//		String text = doc.body().text();
+//		assertNotNull(text);
+//		assertNotSame(0, text.length());
+//		
+//	}
+	
+	public void testShowMeTheLongestWord(){
+		String textArrayFromBody = "Har du sett Frode? Jobb og karriere (29) Søk: Søk SAKSBEHANDLER/KONSULENT Sted KONGSVINGER";
+		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertNotNull(theLongestWord);
 	}
 	
-	public void testGetTextContentFromDocument() throws IOException{
-		Document doc = scraper.scrapingFromUrl(webUrl);
-		assertNotNull(doc);
-		
-		String text = doc.body().text();
-		assertNotNull(text);
-		assertNotSame(0, text.length());
-		
+	public void testShowMeTheFristLongestWordInCaseThereAreMoreThanOneAreLonngest(){
+		String textArrayFromBody = "karriere Jobb og  Søk ";
+		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertEquals("karriere", theLongestWord);
+		textArrayFromBody = textArrayFromBody.concat(" abcdefghi");
+		assertNotSame("karriere", theLongestWord);
 	}
 	
 	public void testTheLongestWithSpecialCalactor(){
-		assertTrue(true);
+		String textArrayFromBody = "karriere Jobb og  Søk ";
+		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertEquals("karriere", theLongestWord);
+		
+		textArrayFromBody = textArrayFromBody.concat(" KONGSVIN:");
+		theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertNotSame("KONGSVIN:", theLongestWord);		
+		assertEquals("karriere", theLongestWord);
+		
+		textArrayFromBody = textArrayFromBody.concat(" abctechx?");
+		theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertNotSame("abctechx?", theLongestWord);		
+		assertEquals("karriere", theLongestWord);
+		
+		textArrayFromBody = textArrayFromBody.concat(" SAKSBEHANDLER/KONSULENT");
+		theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertNotSame("SAKSBEHANDLER/KONSULENT", theLongestWord);		
+		assertEquals("SAKSBEHANDLER", theLongestWord);
+		
+		
+		
 	}
 	
-	public void testShowMeTheLongestWord(){
-		String textArrayFromBody = "sdfasldfhasf asdfjkhasldfha  alskdjfhaldhf a asdjfkhalsdkjfhals  alsdf askj flas fkjas fkjs dfkhasf dsjflkasdf/fasdfasdf";
-		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
-		assertNotNull(theLongestWord);
-		
-		
-		
-	}
+	
+	
 	
 	
 	
