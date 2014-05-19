@@ -6,24 +6,25 @@ import java.text.Normalizer;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-/**
- * Hello world!
- * 
- */
+
 public class JsoupWebScraping {
+	private static String URL = "http://www.rb.no";
 	public static void main(String[] args) {
 
-		
-		
-		
-		
+		JsoupWebScraping scraper = new JsoupWebScraping();
 		String textFromScraping = "";
-		System.out.println("the longest word here, is ");
+		try {
+			textFromScraping = scraper.findMaxLenghtWord(scraper.scrapingFromUrl(URL).body().text());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("the longest word here, is " + textFromScraping);
 
 	}
 
 	public Document scrapingFromUrl(String Url) throws IOException {
-		Document doc = Jsoup.connect("http://www.rb.no").get();
+		Document doc = Jsoup.connect(Url).get();
 		return doc;
 	}
 

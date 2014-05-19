@@ -35,21 +35,21 @@ public class JsoupWebScrapingTest extends TestCase {
 	
 	
 	
-//	public void testWebScrapingByURL() throws IOException {
-//		Document doc = scraper.scrapingFromUrl(webUrl);
-//		assertNotNull(doc);
-//		
-//	}
-//	
-//	public void testGetTextContentFromDocument() throws IOException{
-//		Document doc = scraper.scrapingFromUrl(webUrl);
-//		assertNotNull(doc);
-//		
-//		String text = doc.body().text();
-//		assertNotNull(text);
-//		assertNotSame(0, text.length());
-//		
-//	}
+	public void testWebScrapingByURL() throws IOException {
+		Document doc = scraper.scrapingFromUrl(webUrl);
+		assertNotNull(doc);
+		
+	}
+	
+	public void testGetTextContentFromDocument() throws IOException{
+		Document doc = scraper.scrapingFromUrl(webUrl);
+		assertNotNull(doc);
+		
+		String text = doc.body().text();
+		assertNotNull(text);
+		assertNotSame(0, text.length());
+		
+	}
 	
 	public void testShowMeTheLongestWord(){
 		String textArrayFromBody = "Har du sett Frode? Jobb og karriere (29) Søk: Søk SAKSBEHANDLER/KONSULENT Sted KONGSVINGER";
