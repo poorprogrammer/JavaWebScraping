@@ -55,6 +55,8 @@ public class JsoupWebScrapingTest extends TestCase {
 		String textArrayFromBody = "Har du sett Frode? Jobb og karriere (29) Søk: Søk SAKSBEHANDLER/KONSULENT Sted KONGSVINGER";
 		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
 		assertNotNull(theLongestWord);
+		assertEquals("SAKSBEHANDLER", theLongestWord);
+		
 	}
 	
 	public void testShowMeTheFristLongestWordInCaseThereAreMoreThanOneAreLonngest(){
