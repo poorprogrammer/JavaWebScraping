@@ -85,7 +85,9 @@ public class JsoupWebScrapingTest extends TestCase {
 		assertNotSame("SAKSBEHANDLER/KONSULENT", theLongestWord);		
 		assertEquals("SAKSBEHANDLER", theLongestWord);
 		
-		
+		textArrayFromBody = textArrayFromBody.concat(" SAKSBEHANDLER/KONSULENT/xxx");
+		theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertEquals("SAKSBEHANDLER", theLongestWord);
 		
 	}
 	

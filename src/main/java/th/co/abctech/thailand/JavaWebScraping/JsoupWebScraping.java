@@ -13,8 +13,11 @@ import org.jsoup.nodes.Document;
 public class JsoupWebScraping {
 	public static void main(String[] args) {
 
+		
+		
+		
+		
 		String textFromScraping = "";
-
 		System.out.println("the longest word here, is ");
 
 	}
@@ -30,13 +33,22 @@ public class JsoupWebScraping {
 		int max = 0;
 		for (int index = 0; index < words.length; index++) {
 			String word = words[index];
-			System.out.println(word) ;
 			word = word.replaceAll(":", "");
 			word = word.replaceAll("\\?", "");
-			System.out.println(word) ;
-			if (word.length() > max) {
-				max = word.length();
-				theLongestWord = word;
+			
+			String slashString[] = word.split("/");
+			if(slashString.length > 1){
+				for(int subIndex = 0 ; subIndex < slashString.length ; subIndex++){
+					if (slashString[subIndex].length() > max) {
+						max = slashString[subIndex].length();
+						theLongestWord = slashString[subIndex];
+					}
+				}
+			}else{
+				if (word.length() > max) {
+					max = word.length();
+					theLongestWord = word;
+				}
 			}
 		}		
 		return theLongestWord;
