@@ -20,4 +20,11 @@ public class JsoupWebScraping {
 		return doc;
 	}
 
+	public String findMaxLenghtWord(String textArrayFromBody) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 }

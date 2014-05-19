@@ -39,8 +39,31 @@ public class JsoupWebScrapingTest extends TestCase {
 		Document doc = scraper.scrapingFromUrl(webUrl);
 		assertNotNull(doc);
 		
+	}
+	
+	public void testGetTextContentFromDocument() throws IOException{
+		Document doc = scraper.scrapingFromUrl(webUrl);
+		assertNotNull(doc);
+		
+		String text = doc.body().text();
+		assertNotNull(text);
+		assertNotSame(0, text.length());
+		
+	}
+	
+	public void testTheLongestWithSpecialCalactor(){
+		assertTrue(true);
+	}
+	
+	public void testShowMeTheLongestWord(){
+		String textArrayFromBody = "sdfasldfhasf asdfjkhasldfha  alskdjfhaldhf a asdjfkhalsdkjfhals  alsdf askj flas fkjas fkjs dfkhasf dsjflkasdf/fasdfasdf";
+		String theLongestWord = scraper.findMaxLenghtWord(textArrayFromBody);
+		assertNotNull(theLongestWord);
 		
 		
 		
 	}
+	
+	
+	
 }
